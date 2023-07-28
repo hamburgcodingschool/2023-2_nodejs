@@ -15,8 +15,11 @@ const connection = mysql.createConnection({
 app.get("/cities", function (req, res) {
   const sql = `SELECT * FROM cities LIMIT 5`;
   connection.query(sql, function (err, result) {
-    // we're using express now,
-    // inside the mysql connection (instead of `console.log`-ging it)
+    if (err) {
+      console.log(err);
+      return;
+    }
+    // we're using express now inside the mysql query-ing (instead of `console.log`-ging the result)
     res.json(result);
   });
 });

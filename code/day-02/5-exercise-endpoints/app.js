@@ -12,11 +12,38 @@ const connection = mysql.createConnection({
   database: "world",
 });
 
-app.get("/cities", function (req, res) {
-  const sql = `SELECT * FROM cities LIMIT 5`;
+// write an endpoint called `countries` that returns the first 10 countries as a JSON list
+app.get("/countries", function (req, res) {
+  const sql = `SELECT * FROM countries LIMIT 10`;
   connection.query(sql, function (err, result) {
-    // we're using express now,
-    // inside the mysql connection (instead of `console.log`-ging it)
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.json(result);
+  });
+});
+
+// write an endpoint called `randomCountry` that returns a random country as JSON
+app.get("/randomCountry", function (req, res) {
+  const sql = `SELECT * FROM countries ORDER BY RAND() limit 1`;
+  connection.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.json(result);
+  });
+});
+
+// write an endpoint called `kenyanLanguages` that returns a JSON list with all languages that are spoken in Kenya ordered by their percentage
+app.get("/kenyanLanguages", function (req, res) {
+  const sql = `SELECT * FROM languages WHERE CountryCode="KEN" ORDER BY Percentage DESC`;
+  connection.query(sql, function (err, result) {
+    if (err) {
+      console.log(err);
+      return;
+    }
     res.json(result);
   });
 });
