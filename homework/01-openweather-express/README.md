@@ -17,27 +17,27 @@ There are a couple of sub-tasks in task 3 that you could approach independently 
   - for example, write a function that takes this data:
   ```json
   [
-  {
-    "city": "Alexandria,eg",
-    "feels_like": 35.6
-  },
-  {
-    "city": "Buenos Aires,ar",
-    "feels_like": 10.27
-  },
-  {
-    "city": "Chicago,us",
-    "feels_like": 19.03
-  },
-  {
-    "city": "Dublin,ie",
-    "feels_like": 15.7
-  },
-  {
-    "city": "Essen,de",
-    "feels_like": 19.35
-  }
-  ])
+    {
+      "city": "Alexandria,eg",
+      "feels_like": 35.6
+    },
+    {
+      "city": "Buenos Aires,ar",
+      "feels_like": 10.27
+    },
+    {
+      "city": "Chicago,us",
+      "feels_like": 19.03
+    },
+    {
+      "city": "Dublin,ie",
+      "feels_like": 15.7
+    },
+    {
+      "city": "Essen,de",
+      "feels_like": 19.35
+    }
+  ]
   ```
   and returns `"Alexandria,eg"`
-  - how would you even build the list base on the results of the OpenWeatherMap API results?
+  - how would you even build that list of objects based on the results of the OpenWeatherMap API results?
