@@ -1,0 +1,16 @@
+{
+  "name": "02-world-queries",
+  "version": "1.0.0",
+  "description": "Write an express app with one endpoint called `getNextCity`. It should be using `cities` table in the `world` database. When the app just started, and you call that endpoint the first time, it should give you the city with ID 1 (\"Kabul\" in my DB, but if you have a different one, no worries), when it's called the next time, it should give you the city with ID 2 (here: \"Qandahar\") and so on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.5.2"
+  }
+}
