@@ -2,10 +2,12 @@ const express = require("express");
 
 app = express();
 
-// add a `lang` query parameter to `queryGreeting`,
-// such that you can get a response in another language.
-// E.g. a request to /queryGreeting?name=Charlie&lang=fr
-//  will give you "Bonjour, Charlie"
+/*
+
+Exercise (the solution is already provided here)
+1. add a `lang` query parameter to `/queryGreeting`, such that you can get a response in another language.
+   e.g. a request to /queryGreeting?name=Charlie&lang=fr will give you "Bonjour, Charlie"
+*/
 
 app.get("/queryGreeting", (req, res) => {
     // print some helpful debugging information
@@ -14,11 +16,14 @@ app.get("/queryGreeting", (req, res) => {
     console.log(req.query);
     console.log("req.query.something is: " + req.query.something);
 
+    // default case
     let greeting = "Hello";
     // special case of `lang` being `fr`
     if (req.query.lang == "fr") {
         greeting = "Bonjour";
-    } else if (req.query.lang == "de") {
+    }
+    // special case of `lang` being `de`
+    else if (req.query.lang == "de") {
         greeting = "Hallo";
     }
 
@@ -28,6 +33,14 @@ app.get("/queryGreeting", (req, res) => {
     }
     res.json(greeting + ", " + name);
 });
+
+/*
+
+Exercise (the solution is already provided here)
+2. add a `lang` parameter to the `/greeting` route, such that e.g. a request to /greeting/James/fr will give you "Bonjour, James"
+3. implement a query parameter to the  `/greeting` of your choice. For example, to print a formal greeting or a goodbye
+    -> this is not implemented yet and could be a homework for you!
+*/
 
 app.get("/greeting/:name?/:lang?", (req, res) => {
     console.log(req.params);
@@ -39,10 +52,11 @@ app.get("/greeting/:name?/:lang?", (req, res) => {
     if (lang == undefined) {
         lang = "en";
     }
-    // this is solved using a different style
-    // just for you to see how it could be approached
-    // in a more elegant way, but it doesn't matter,
-    // you could do the language choice the same way as in the other function
+    /* this is solved using a different style
+       just for you to see how it could be approached
+       in a more elegant way. But it doesn't matter!
+       You could do the language selection the same way as in the other function
+    */
     const greetings = {
         en: "Hello",
         fr: "Bonjour",
@@ -50,17 +64,6 @@ app.get("/greeting/:name?/:lang?", (req, res) => {
     };
     res.json(greetings[lang] + ", " + name);
 });
-
-/*
-
-Next step: make name optional.
-
-Exercises
-- add a `lang` parameter to `queryGreeting`, such that you can get a response in another language. E.g. a request to /queryGreeting?name=Charlie&lang=fr
-  will give you "Bonjour, Charlie"
-- add a `lang` parameter to the `/greeting` route, such that e.g. a request to /greeting/James/fr will give you "Bonjour, James"
-- implement a query parameter to the  `/greeting` of your choice. For example, to print a formal greeting or a goodbye
-*/
 
 app.listen(3000, () => {
     console.log("server started.");
