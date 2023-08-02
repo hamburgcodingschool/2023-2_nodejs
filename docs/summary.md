@@ -97,3 +97,25 @@ These summaries are not meant to be comprehensive, and it will probably only mak
     - write an endpoint called `countries` that returns the first 10 countries as a JSON list
     - write an endpoint called `randomCountry` that returns a random country as JSON
     - write an endpoint called `kenyanLanguages` that returns a JSON list with all languages that are spoken in Kenya ordered by their percentage
+
+## Day 3 -- 2023-07-31
+
+- Why do we need error handling with MySQL (e.g. [here](https://github.com/hamburgcodingschool/fullstack-2023-2_nodejs/blob/main/code/day-02/3-hello-mysql/app.js#L16-L19))
+  - if we don't do it, then it will go by silently and we have no idea what's wrong
+- Is it optional to add logging in the `app.listen` callback?
+  - yes, but here as well it's very helpful to have some feedback on how the app is behaving (whether it started or not)
+- Work on Homework 2
+- Introduction to the Request (`req`) part of a GET request in express
+  - query parameters are just one single way of providing flexibility
+- In general, a parameter is something very flexible that carries a value.
+  - it can be a parameter of a javascript function
+  - or the parameter as part of the URL
+  - there's no predefined "rule" of how you have to use it
+    - in reality a query parameter _could_ be used for DB request, but it's not necessarily the case
+
+## Day 4 -- 2023-08-02
+
+- Discuss Homework 3 and get the first steps going for everyone
+- Route parameters (or URL parameters) in Express
+- What is the difference between a route/path parameter (`req.params`) and a query parameter (`req.query`)
+  - whiteboard, see [here](2023-08-02-whiteboard.jpg)
