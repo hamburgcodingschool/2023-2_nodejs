@@ -34,9 +34,10 @@ INSERT INTO guests (email, first_name, last_name, age, invited, accepted_invite)
 
 When you have copied over these things on your database, you should be good to go for the actual tasks.
 
+## Exercise
 In an express app
 1. write a GET endpoint to retrieve all guests
 2. write a GET endpoint to retrieve all not yet invited guests
 3. write a GET endpoint to retrieve all guests that are younger than 18
 4. write a GET endpoint to retrieve one guest with id 5
-5. think about the different ways to return the results. Could you maybe use query parameters (`req.query`) or route parameters (`req.route`)?
+5. think about the different ways to ask for and return the results. Could you maybe use query parameters (`req.query`) or route parameters (`req.route`)?
