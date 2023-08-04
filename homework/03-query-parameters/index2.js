@@ -13,26 +13,25 @@ const connection = mysql.createConnection({
 
 app.get("/getCity", function (req, res) {
     console.log(req.query);
+    let sql;
+    if (req.query.cityID != undefined && req.query.countryCode != undefined) {
+        // if I give both,
+        // I can try to get cityID and see if the city with the country code exists
+        // if not, then empty result
 
-    // please note: this "hand crafting SQL" is only for learning purposes
-    // totally not recommened in your real world app (thing to look for: template query TODO)
-    let sql = "SELECT * FROM cities";
-    if (req.query.cityID != undefined) {
+        res.json({ error: "Please use only cityID OR countryCode." });
+        return;
+        // from here on, I know that NOT both are defined
+    } else if (req.query.cityID != undefined) {
         // the user specified `cityID`, so let's give them the city with the right ID
-        sql = sql + ` WHERE cities.ID=${req.query.cityID}`;
-    }
-    if (req.query.countryCode != undefined) {
+        sql = `SELECT * FROM cities WHERE cities.ID=${req.query.cityID}`;
+    } else if (req.query.countryCode != undefined) {
         // the user specified `countryCode`, so let's give them a random city from that country
-        sql = sql + ` WHERE CountryCode="${req.query.countryCode}"`;
-    }
-    if (req.query.random == "true") {
+        sql = `SELECT * FROM cities WHERE CountryCode="${req.query.countryCode}" ORDER BY RAND() LIMIT 1`;
+    } else {
         // nothing is specified, so we choose any random city
-        sql = sql + ` ORDER BY RAND()`;
+        sql = `SELECT * FROM cities ORDER BY RAND() LIMIT 1`;
     }
-    // I always want to limit the result to 1
-    sql = sql + ` LIMIT 1`;
-
-    // now send our hand crafted query to the DB
     connection.query(sql, function (err, result) {
         if (err) {
             console.log(err);
