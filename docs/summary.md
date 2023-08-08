@@ -119,3 +119,9 @@ These summaries are not meant to be comprehensive, and it will probably only mak
 - Route parameters (or URL parameters) in Express
 - What is the difference between a route/path parameter (`req.params`) and a query parameter (`req.query`)
   - whiteboard, see [here](2023-08-02-whiteboard.jpg)
+
+## Day 5 -- 2023-08-04
+
+- re-iterated on what backend development even is. Connection between server and client. How the backend is an HTTP Server, but a MySQL Client.
+- discussed first part of Homework 1: Using Fetch to OpenWeatherMap.
+- discussed Homework 3: Using Query Parameters extensively
